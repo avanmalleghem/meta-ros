@@ -659,7 +659,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES = " \
     microstrain-inertial-rqt \
     mimick-vendor \
     mobileye-560-660-msgs \
-    mocap-msgs \
     mocap-optitrack \
     mocap4r2-control \
     mocap4r2-control-msgs \
@@ -2159,7 +2158,6 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = " \
                      microstrain-inertial/microstrain-inertial-rqt_4.2.0-1 \
                             mimick-vendor/mimick-vendor_0.2.8-2 \
                        astuff-sensor-msgs/mobileye-560-660-msgs_4.0.0-1 \
-                               mocap-msgs/mocap-msgs_0.0.4-1 \
                           mocap-optitrack/mocap-optitrack_1.0.0-3 \
                                  mocap4r2/mocap4r2-control_0.0.7-1 \
                                  mocap4r2/mocap4r2-control-msgs_0.0.7-1 \
@@ -3643,7 +3641,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = " \
     microstrain-inertial-msgs \
     microstrain-inertial-rqt \
     mobileye-560-660-msgs \
-    mocap-msgs \
     mocap-optitrack \
     mocap4r2-control \
     mocap4r2-control-msgs \
@@ -5176,7 +5173,6 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = " \
     micro-ros-msgs \
     microstrain-inertial \
     mimick-vendor \
-    mocap-msgs \
     mocap-optitrack \
     mocap4r2 \
     mocap4r2-msgs \
