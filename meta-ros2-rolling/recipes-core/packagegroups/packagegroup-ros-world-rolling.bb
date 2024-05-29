@@ -57,11 +57,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CARGO = " \
     zenoh-bridge-dds \
 "
 
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'clang', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
-    zenoh-bridge-dds \
-"
-
 # alternative not yet supported implementation for fastrtps
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CONNEXT = " \
@@ -90,6 +85,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOMP = " \
     moveit-ros \
     moveit-runtime \
     moveit \
+    nav2-mppi-controller \
+    reach \
+    reach-ros \
 "
 
 # Can't build these until we figure out how to build clang-format, clang-tidy without building all of clang.
@@ -99,9 +97,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_CLANG = " \
     ament-clang-tidy \
     ament-cmake-clang-format \
     ament-cmake-clang-tidy \
+    ffmpeg-image-transport \
     ouxt-lint-common \
     pinocchio \
+    zenoh-bridge-dds \
 "
+
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'openni', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
@@ -122,13 +123,6 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENNI = " \
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'launch', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LAUNCH = " \
     launch-testing-ament-cmake \
-"
-
-# not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
-RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pendulum-control', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PENDULUM_CONTROL}', '', d)}"
-ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PENDULUM_CONTROL = " \
-    desktop \
-    pendulum-control \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'coinor-libipopt', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_COINOR_LIBIPOPT}', '', d)}"
@@ -304,8 +298,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     desktop \
     dolly-gazebo \
     dolly \
+    find-object-2d \
+    freeglut \
     fuse \
     fuse-tutorials \
+    glew \
+    glfw \
     libg2o \
     librealsense2 \
     moveit-ros \
@@ -315,7 +313,11 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     moveit-runtime \
     moveit-visual-tools \
     moveit \
+    multires-image \
+    openni2 \
+    openni2-camera \
     openvslam \
+    pangolin \
     plotjuggler-ros \
     plotjuggler \
     pose-cov-ops \
@@ -323,6 +325,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     realsense-node \
     realsense-ros \
     realsense2-camera \
+    rig-reconfigure \
     rmf-visualization \
     rmf-visualization-rviz2-plugins \
     rtabmap \
@@ -338,6 +341,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_OPENGL = " \
     rviz2 \
     tiago-bringup \
     tiago-robot \
+    tinyspline-vendor \
     turtlebot3-gazebo \
     turtlebot3-simulations \
     webots-ros2-epuck \
@@ -353,6 +357,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     desktop-full \
     dolly-gazebo \
     dolly \
+    dual-arm-panda-moveit-config \
     fuse-ros \
     fuse-tutorials \
     fuse-viz \
@@ -363,6 +368,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     joint-state-publisher-gui \
     leo-viz \
     leo-desktop \
+    mapviz \
+    mapviz-plugins \
     microstrain-inertial-rqt \
     moveit-hybrid-planning \
     moveit-resources-panda-moveit-config \
@@ -397,7 +404,9 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     pmb2-description \
     pmb2-navigation \
     pmb2-robot \
+    polygon-rviz-plugins \
     python-qt-binding \
+    py-trees-js \
     qt-dotgraph \
     qt-gui \
     qt-gui-app \
@@ -421,6 +430,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-bag-plugins \
     rqt-common-plugins \
     rqt-console \
+    rqt-controller-manager \
+    rqt-gauges \
     rqt-gui \
     rqt-gui-py \
     rqt-gui-cpp \
@@ -439,6 +450,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
+    rqt-runtime-monitor \
     rqt-service-caller \
     rqt-shell \
     rqt-srv \
@@ -473,6 +485,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_META_QT5 = " \
     tiago-bringup \
     tiago-description \
     tiago-robot \
+    tile-map \
     turtlebot3 \
     turtlebot3-bringup \
     turtlebot3-gazebo \
@@ -611,6 +624,7 @@ RDEPENDS:${PN}:remove = "${ROS_SUPERFLORE_GENERATED_ARCH_SPECIFIC}"
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'pyqt5', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     desktop \
+    dual-arm-panda-moveit-config \
     fuse-ros \
     fuse-viz \
     joint-state-publisher-gui \
@@ -636,6 +650,8 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-bag-plugins \
     rqt-console \
     rqt-common-plugins \
+    rqt-controller-manager \
+    rqt-gauges \
     rqt-graph \
     rqt-gui-cpp \
     rqt-gui-py \
@@ -652,6 +668,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_PYQT5 = " \
     rqt-robot-dashboard \
     rqt-robot-monitor \
     rqt-robot-steering \
+    rqt-runtime-monitor \
     rqt-service-caller \
     rqt-shell \
     rqt-srv \
@@ -681,6 +698,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SELF_TEST = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'x11', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
+    adwaita-icon-theme \
     color-names \
     desktop \
     dolly-gazebo \
@@ -716,10 +734,12 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_X11 = " \
     rviz-rendering \
     rviz-visual-tools \
     slam-toolbox \
+    tango-icons-vendor \
     tiago-bringup \
     tiago-robot \
     turtlebot3-gazebo \
     turtlebot3-simulations \
+    visp \
     webots-ros2-epuck \
     webots-ros2-tiago \
     webots-ros2-universal-robot \
@@ -733,6 +753,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_GLFW = " \
     realsense-node \
     realsense-ros \
     realsense2-camera \
+    rig-reconfigure \
 "
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros1', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_ROS1}', '', d)}"
@@ -806,6 +827,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_LIBOPEN3D = " \
 
 RDEPENDS:${PN}:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'scipy', '${ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY}', '', d)}"
 ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_SCIPY = " \
+    proxsuite \
     slider-publisher \
 "
 

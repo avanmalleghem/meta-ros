@@ -19,12 +19,12 @@ ROS_CN = "libcamera"
 ROS_BPN = "libcamera"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-jinja2} \
     ${ROS_UNRESOLVED_DEP-python3-ply} \
     gcc-runtime \
     libyaml \
     openssl \
     pkgconfig \
+    python3-jinja2 \
     python3-pyyaml \
     udev \
 "

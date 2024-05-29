@@ -17,15 +17,12 @@ can be presumed unsupported.
 | ---                 | ---          | ---          | ---              | ---          |
 |                     | *(Rolling)*  | **Noetic**   | **Humble (LTS)** | **Iron**     |
 |                     |              | May 2025     | May 2027         | Nov 2024     |
-| **Scarthgap (Dev)** | Apr 2028     | **May 2025** | **May 2027**     | **Nov 2024** |
-| **Nanbield**        | Apr 2024     | **May 2025** | **Apr 2024**     | **Apr 2024** |
-| **Mickledore**      | Nov 2023     | Nov 2023     | **Nov 2023**     | **Nov 2023** |
-| Langdale            | ~~May 2023~~ | ~~May 2023~~ | May 2023 <sup>2</sup>     | ~~May 2023~~ |
+| **Styhead (Dev)**   | (Future)     | **May 2025** | (Future)         | **Nov 2024** |
+| **Scarthgap (LTS)** | Apr 2028     | **May 2025** | **May 2027**     | **Nov 2024** |
+| Nanbield            | ~~Apr 2024~~ | ~~Apr 2024~~ | ~~Apr 2024~~     | ~~Apr 2024~~ |
+| Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~ | Nov 2023 <sup>1</sup>     | ~~Nov 2023~~ |
+| Langdale            | ~~May 2023~~ | ~~May 2023~~ | ~~May 2023~~     | ~~May 2023~~ |
 | **Kirkstone (LTS)** | Apr 2026     | **Apr 2024** | **Apr 2026**     | **Nov 2024** |
-| Honister            | ~~May 2022~~ | ~~May 2022~~ | ~~May 2022~~     | ~~May 2022~~ |
-| Hardknott           | ~~Apr 2022~~ | ~~Apr 2022~~ | Apr 2022 <sup>1</sup>     | ~~Apr 2022~~ |
-| Gatesgarth          | ~~May 2021~~ | ~~May 2021~~ | ~~May 2021~~     | ~~May 2021~~ |
-| **Dunfell (LTS)**   | Apr 2024     | **Apr 2024** | **Apr 2024**     | **Apr 2024** |
 
 
 
@@ -40,19 +37,12 @@ can be presumed unsupported.
 
 # Getting Started
 
-```
-git clone -b build --single-branch https://github.com/ros/meta-ros.git build
+The easiest way to get started with ROS with OpenEmbedded is to build the combination
+of Kirkstone (Yocto Project) with Humble (ROS 2).
 
-mkdir conf
-ln -snf ../conf build/.
-cp build/files/ros2-humble-kirkstone.mcf  conf/.
+You may use the kas tool to clone the necessary git repositories and kick off the build.
 
-build/scripts/mcf -f conf/ros2-humble-kirkstone.mcf
-
-source openembedded-core/oe-init-build-env
-
-bitbake ros-image-core
-```
+Instructions can be found here: https://github.com/ros/meta-ros/tree/build/kas/README.md
 
 # Repository Layout
 

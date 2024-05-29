@@ -142,9 +142,6 @@ ROS_WORLD_SKIP_GROUPS += "webots-python-modules"
 # recipes depending on gazebo-rosdev
 ROS_WORLD_SKIP_GROUPS += "gazebo"
 
-# not compatible with glibc-2.34 without easy fix as reported in https://github.com/ros2/demos/issues/530
-ROS_WORLD_SKIP_GROUPS += "pendulum-control"
-
 # recipes depending on libqglviewer (https://packages.debian.org/source/stretch/libqglviewer https://packages.debian.org/stretch/libqglviewer2-qt5)
 ROS_WORLD_SKIP_GROUPS += "libqglviewer"
 
@@ -252,7 +249,7 @@ ROS_UNRESOLVED_DEP-libabsl-dev = "abseil-cpp"
 ROS_UNRESOLVED_DEP-liblttng-ust-dev = "lttng-ust"
 
 # https://layers.openembedded.org/layerindex/recipe/132113/
-ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "ocl-icd"
+ROS_UNRESOLVED_DEP-ocl-icd-opencl-dev = "virtual/opencl-icd"
 
 # https://layers.openembedded.org/layerindex/recipe/56447/
 ROS_UNRESOLVED_DEP-pybind11-dev = "python3-pybind11"
@@ -384,3 +381,8 @@ ROS_UNRESOLVED_DEP-python3-fiona = "python3-fiona"
 ROS_UNRESOLVED_DEP-python3-shapely = "python3-shapely"
 ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
 ROS_UNRESOLVED_DEP-python3-uvloop = "python3-uvloop"
+
+ROS_UNRESOLVED_DEP-libgdal-dev = "gdal"
+ROS_UNRESOLVED_DEP-python3-smbus = "python3-smbus"
+ROS_UNRESOLVED_DEP-libxkbcommon-dev = "libxkbcommon"
+ROS_UNRESOLVED_DEP-libavdevice-dev = "ffmpeg"
